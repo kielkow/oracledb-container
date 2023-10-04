@@ -1,0 +1,19 @@
+Install oracle database with docker
+
+1 - Create container:
+docker run -d --name oracle-db -p 1521:1521 -p 5500:5500 -e ORACLE_USER=root -e ORACLE_PWD=root container-registry.oracle.com/database/free
+
+2 - Terminal inside container:
+docker exec -it oracle-db /bin/bash
+
+3 - Connect to the Oracle Database instance using SQL*Plus:
+sqlplus sys as sysdba
+
+4 - Create an user:
+CREATE USER C##test_user IDENTIFIED BY test_password
+
+5 - Grant the necessary privileges to the new user:
+GRANT CONNECT, RESOURCE TO C##test_user;
+ALTER USER C##test_user QUOTA UNLIMITED ON USERS;
+
+6 - Run script execute.js to test.
