@@ -10,7 +10,7 @@ docker exec -it oracle-db /bin/bash
 sqlplus sys as sysdba
 
 4 - Create an user:
-CREATE USER C##test_user IDENTIFIED BY test_password
+CREATE USER C##test_user IDENTIFIED BY test_password;
 
 5 - Grant the necessary privileges to the new user:
 GRANT CONNECT, RESOURCE TO C##test_user;
